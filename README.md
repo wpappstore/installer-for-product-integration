@@ -1,7 +1,7 @@
 WP App Store Installer for Product Integration
 ==============================================
 
-The following code is intended for developers to include in their themes/plugins to help distribute the WP App Store plugin. The code add a WP App Store item to the WordPress menu. When clicked, a page introduces the WP App Store and allows the user to install the WP App Store plugin with one click.
+The following code is intended for developers to include in their themes/plugins to help distribute the WP App Store plugin. The code adds a WP App Store item to the WordPress menu. When clicked, a page introduces the WP App Store and allows the user to install the WP App Store plugin with one click.
 
 
 How to Integrate with a Theme
