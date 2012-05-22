@@ -130,6 +130,7 @@ class WP_App_Store_Installer {
         
         $args = array(
             'sslverify' => false,
+			'timeout' => 30,
             'headers' => array(
                 'Referer' => $this->current_url(),
                 'User-Agent' => 'PHP/' . PHP_VERSION . ' WordPress/' . get_bloginfo( 'version' )
@@ -184,7 +185,7 @@ class WP_App_Store_Installer {
         if ( $info ) return $info;
         
         $url = $this->cdn_url . '/client/upgrade.json';
-        $data = wp_remote_get( $url );
+        $data = wp_remote_get( $url, array( 'timeout' => 30 ) );
     
         if ( !is_wp_error( $data ) && 200 == $data['response']['code'] ) {
             if ( $info = json_decode( $data['body'], true ) ) {
