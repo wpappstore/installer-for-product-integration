@@ -2,7 +2,7 @@
 /*
 WP App Store Installer for Product Integration
 http://wpappstore.com/
-Version: 0.1
+Version: 0.1.1
 
 The following code is intended for developers to include
 in their themes/plugins to help distribute the WP App Store plugin.
@@ -86,11 +86,18 @@ class WP_App_Store_Installer {
     }
     
     function admin_menu() {
-        // Stop if the WP App Store plugin is already installed
-        $plugins = get_plugins();
-        if ( isset( $plugins['wp-app-store/wp-app-store.php'] ) ) {
-            return;
-        }
+        // Stop if the WP App Store plugin is already installed and activated
+		if ( class_exists( 'WP_App_Store' ) ) {
+			return;
+		}
+		
+        // Stop if the WP App Store plugin is already installed, but not activated
+		$plugins = array_keys( get_plugins() );
+		foreach ( $plugins as $plugin ) {
+			if ( strpos( $plugin, 'wp-app-store.php' ) !== false ) {
+				return;
+			}
+		}
 
         $menu = $this->get_menu();
         

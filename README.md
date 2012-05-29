@@ -13,3 +13,12 @@ How to Integrate with a Plugin
 ------------------------------
 
 Simply include `wp-app-store.php` in the folder with your plugin files. Then add `include 'wp-app-store.php';` to your main plugin file.
+
+Change Log
+----------
+
+### 0.1.1 (2012-05-29)
+* Detect WP App Store plugin by looking for WP\_App\_Store class (hat tip @alexkingorg)
+
+### 0.1 (2012-04-24)
+ * Initial release
