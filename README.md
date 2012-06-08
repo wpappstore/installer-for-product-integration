@@ -17,6 +17,9 @@ Simply include `wp-app-store.php` in the folder with your plugin files. Then add
 Change Log
 ----------
 
+### 0.2 (2012-06-08)
+* Added affiliate ID support
+
 ### 0.1.1 (2012-05-29)
 * Detect WP App Store plugin by looking for WP\_App\_Store class (hat tip @alexkingorg)
 

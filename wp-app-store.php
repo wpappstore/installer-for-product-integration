@@ -2,7 +2,7 @@
 /*
 WP App Store Installer for Product Integration
 http://wpappstore.com/
-Version: 0.1.1
+Version: 0.2
 
 The following code is intended for developers to include
 in their themes/plugins to help distribute the WP App Store plugin.
