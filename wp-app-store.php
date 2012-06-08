@@ -19,6 +19,8 @@ class WP_App_Store_Installer {
     public $slug = 'wp-app-store';
     
     public $run_installer = null;
+	
+	public $affiliate_id = '';
     
     public $output = array(
         'head' => '',
@@ -214,6 +216,12 @@ class WP_App_Store_Installer {
         $menu = $this->get_menu();
 
         if ( !$upgrade ) return $api;
+		
+		// Add affiliate ID to WP settings if it's not already set by another
+		// theme or plugin
+		if ( $this->affiliate_id && !get_site_transient( 'wpas_affiliate_id' ) ) {
+			set_site_transient( 'wpas_affiliate_id', $this->affiliate_id );
+		}
         
         $api = new stdClass();
         $api->name = $menu['title'];
