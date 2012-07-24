@@ -8,7 +8,7 @@ The following code is intended for developers to include in their themes/plugins
 Configuration
 -------------
 
-1. Sign up for an affiliate account (if you haven't already)
+1. [Sign up](http://wpappstore.com/affiliates/) for a new affiliate account (if you don't have one) or [login](https://wpappstore.com/login/) to your existing account
 1. Copy your affiliate ID
 1. Open `wp-app-store.php`
 1. Paste your affiliate ID as value for the `$affiliate_id` variable
