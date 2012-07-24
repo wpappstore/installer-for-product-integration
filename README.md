@@ -3,7 +3,7 @@ WP App Store Installer for Product Integration
 
 The following code is intended for developers to include in their themes/plugins to help distribute the WP App Store plugin and [earn affiliate revenue](http://wpappstore.com/affiliates/). The code adds a "WP App Store" item to the WordPress menu. When clicked, a page introduces WP App Store and allows the user to install the WP App Store plugin with one click.
 
-http://cdn.wpappstore.com/asset/img/affiliates/installer.png
+![WP App Store Installer](http://cdn.wpappstore.com/asset/img/affiliates/installer.png)
 
 Configuration
 -------------
