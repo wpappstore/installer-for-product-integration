@@ -114,7 +114,7 @@ class WP_App_Store_Installer {
     }
     
     function get_install_url() {
-        return 'update.php?action=install-plugin&plugin=wp-app-store&_wpnonce=' . urlencode( wp_create_nonce( 'install-plugin_wp-app-store' ) );
+        return dirname( $this->current_url() ) . '/update.php?action=install-plugin&plugin=wp-app-store&_wpnonce=' . urlencode( wp_create_nonce( 'install-plugin_wp-app-store' ) );
     }
 
     function current_url() {
@@ -135,7 +135,11 @@ class WP_App_Store_Installer {
             exit;
         }
         
-        $url = $this->api_url . '/installer-splash/?wpas-install-url=' . urlencode( $this->get_install_url() );
+        $url = $this->api_url . '/installer-splash/';
+
+        if ( $this->affiliate_id ) {
+            $url = add_query_arg( 'wpas-affiliate-id', $this->affiliate_id, $url );
+        }
         
         $args = array(
             'sslverify' => false,
@@ -160,6 +164,7 @@ class WP_App_Store_Installer {
             <script>
             WPAPPSTORE = {};
             WPAPPSTORE.INSTALL_URL = '" . addslashes( $this->get_install_url() ) . "';
+            WPAPPSTORE.AFFILIATE_ID = '" . addslashes( $this->affiliate_id ) . "';
             </script>
         ";
         
@@ -226,11 +231,18 @@ class WP_App_Store_Installer {
         $api = new stdClass();
         $api->name = $menu['title'];
         $api->version = $upgrade['version'];
-        $api->download_link = $upgrade['download_url'];
+        $api->download_link = $upgrade['download_url'] . '?source=installer-auto';
+        if ( $this->affiliate_id ) {
+            $api->download_link .= '&afid=' . $this->affiliate_id;
+        }
         return $api;
     }
 }
 
-new WP_App_Store_Installer();
+function wp_app_store_installer_init() {
+    new WP_App_Store_Installer();
+}
+
+add_action( 'init', 'wp_app_store_installer_init' );    
 
 endif;
