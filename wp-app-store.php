@@ -14,7 +14,7 @@ if ( !class_exists( 'WP_App_Store_Installer' ) ) :
 
 class WP_App_Store_Installer {
     public $api_url = 'https://wpappstore.com/api/client';
-    public $cdn_url = 'http://cdn.wpappstore.com';
+    public $cdn_url = 'https://s3.amazonaws.com/cdn.wpappstore.com';
     
     public $slug = 'wp-app-store';
     
