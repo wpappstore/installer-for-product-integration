@@ -23,6 +23,13 @@ Integration
 Change Log
 ----------
 
+### 0.3 (2012-10-17)
+* Change "Hide Forever" to hide for all users
+
+### 0.2.1 (2012-08-26)
+* Bug fix: SSL warning in dashboard due to CSS file loaded over HTTP
+* Better stats tracking
+
 ### 0.2 (2012-06-08)
 * Added affiliate ID support
 

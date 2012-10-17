@@ -34,8 +34,7 @@ class WP_App_Store_Installer {
 		}
 
         // Stop if user has chosen to hide this already
-        $user = wp_get_current_user();
-        if ( get_user_meta( $user->ID, 'wpas_installer_hide' ) ) {
+        if ( get_site_option( 'wpas_installer_hide' ) ) {
             return;
         }
 
@@ -129,8 +128,7 @@ class WP_App_Store_Installer {
         }
         
         if ( isset( $_GET['wpas-hide'] ) ) {
-            $user = wp_get_current_user();
-            update_user_meta( $user->ID, 'wpas_installer_hide', '1' );
+            update_site_option( 'wpas_installer_hide', '1' );
             wp_redirect( 'index.php' );
             exit;
         }
