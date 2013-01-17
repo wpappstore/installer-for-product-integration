@@ -38,7 +38,7 @@ Customize the menu
 
 By default, the installer adds a **Theme Store** submenu item under Appearance and
 **Plugin Store** under Plugins. You can remove these and add your own menu item by 
-using the `wpasi_admin_menu` hook.
+using the `wpasi_menu_items` hook.
 
 The following example removes the default menus and adds an **App Store** submenu 
 item under the Gravity Forms top level menu.
